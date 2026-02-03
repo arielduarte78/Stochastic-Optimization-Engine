@@ -122,15 +122,15 @@ El motor no usa un número de iteraciones fijo. En su lugar, implementa un **cri
 
 | Bloque | Nombre | Estado | Notas |
 |--------|---------|---------|-------|
-| **1** | Topología Multidimensional | ✅ **100% Finalizado** | Generación estable del modelo de 5 matrices (A, C, T, K, D). |
-| **2** | Motor de Riesgo Estocástico | ✅ **100% Finalizado** | Simulación de cascada con convergencia dual operativa. |
-| **3** | Optimización & Mitigación | 🚧 **En Diseño Conceptual** | Definición de la "Función Objetivo de Mínimo Arrepentimiento". |
+| **1** | Topología Multidimensional |  **100% Finalizado** | Generación estable del modelo de 5 matrices (A, C, T, K, D). |
+| **2** | Motor de Riesgo Estocástico |  **100% Finalizado** | Simulación de cascada con convergencia dual operativa. |
+| **3** | Optimización & Mitigación |  **En Diseño Conceptual** | Definición de la "Función Objetivo de Mínimo Arrepentimiento". |
 
 ---
 
 ## 7. Aviso de Propiedad Intelectual
 
-⚠️ **CÓDIGO PRIVADO | DOCUMENTACIÓN PÚBLICA**
+ **CÓDIGO PRIVADO | DOCUMENTACIÓN PÚBLICA**
 
 - **IP Privada:** La arquitectura del motor de riesgo, los algoritmos de mutación matricial y el núcleo de simulación son **Propiedad Intelectual (IP) privada**.
 - **Propósito del Repositorio:** Este espacio expone la lógica técnica, los fundamentos matemáticos y las capacidades del sistema para fines de **auditoría, colaboración académica y demostraciones de concepto**. No contiene el código fuente ejecutable completo.
