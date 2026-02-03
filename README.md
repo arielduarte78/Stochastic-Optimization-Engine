@@ -1,81 +1,145 @@
-# PRIME LOGISTICS | Stochastic Optimization Engine
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue) ![Status](https://img.shields.io/badge/Status-Prototype-orange) ![License](https://img.shields.io/badge/License-Proprietary-red)
+# PRIME LOGISTICS | Stochastic Risk & Topology Engine
 
-**Resiliencia de Redes de Distribución bajo Incertidumbre Estructural mediante Simulación de Cascada.**
+## Cuantificación de Fragilidad en Redes de Suministro mediante Modelado de Cascada Jerárquica
 
 ---
 
 ## 1. Resumen Ejecutivo (The "Why")
-En la logística de alta complejidad, los promedios son una trampa. Los modelos tradicionales optimizan para un "escenario ideal", ignorando la volatilidad de entornos reales. Cuando ocurre un evento sistémico (conflictos gremiales, crisis de insumos o colapsos climáticos), las cadenas de suministro fallan no por falta de capacidad, sino por falta de robustez.
 
-**PRIME LOGISTICS** desacopla la topología estática de la dinámica de riesgo. Mediante un motor de Monte Carlo con convergencia dual, generamos miles de "futuros posibles" para encontrar la **ruta de mínimo arrepentimiento**, transformando la incertidumbre en una variable de diseño controlable.
+En logística industrial, la mayoría de los sistemas de planificación fallan porque asumen condiciones ideales y estáticas. **PRIME LOGISTICS** no es simplemente un sistema de ruteo; es un **motor de estrés operacional** que cuantifica el riesgo oculto dentro de su infraestructura de suministro.
 
----
+Mediante una arquitectura de simulación **Monte Carlo con Convergencia Dual**, el motor genera miles de "escenarios de degradación" para identificar no solo los puntos de falla de la red, sino también cómo se ven afectados los costos y tiempos de entrega bajo presión sistémica.
 
-## 2. Fundamentación Matemática (The "Logic")
-
-### Función Objetivo: Optimización Robusta
-El motor no busca simplemente minimizar el costo, sino el valor esperado ponderado por la aversión al riesgo del decisor:
-
-$$\min Z = E \left[ \sum_{i,j \in \mathcal{A}} C_{\omega, ij} \cdot x_{ij} \right] + \lambda \cdot \text{VaR}_{\alpha}(\text{Loss})$$
-
-Donde:
-* $C_{\omega, ij}$: Costo del arco $(i, j)$ en el escenario estocástico $\omega$.
-* $\lambda$: Coeficiente de aversión al riesgo.
-* $\text{VaR}_{\alpha}$: Valor en Riesgo al nivel de confianza $\alpha$.
-
-### Modelado de Incertidumbre y Cascada
-El caos se propaga mediante un **Stress Index ($S$)** que escala las magnitudes de los eventos de nivel inferior:
-
-$$S = \sum_{k \in \text{Sistémicos}} w_k \cdot \mathbb{1}_{\{S_k \text{ activo}\}}$$
-
-Bajo condiciones de estrés ($S > 0$), la varianza de los tiempos y costos se degrada más rápido que la media, reflejando la explosión de incertidumbre operativa:
-
-$$\mu_{eff} = \mu_{base} \cdot (1 + \alpha \cdot S)$$
-$$\sigma_{eff} = \sigma_{base} \cdot (1 + \beta \cdot S)$$
-
-> **Restricción de Diseño:** $\beta > \alpha$ (La incertidumbre crece más rápido que el costo medio).
+**Propósito principal:** Permitir que las organizaciones midan y comprendan la resiliencia real de sus redes logísticas antes de que ocurra una crisis.
 
 ---
 
-## 3. Arquitectura del Sistema
-El sistema se basa en una arquitectura de **Actor-Mutador**, garantizando que la red original nunca se corrompa y que cada escenario sea trazable.
+## 2. Capacidades Actuales (The "What")
 
-```mermaid
-graph TD
-    A[Bloque 1: Topology Builder] -->|Pentada Base A,C,T,K,D| B[Bloque 2: Stochastic Engine]
-    C[Manifest.yaml: ADN de Riesgo] --> B
-    B --> D{Monte Carlo Loop}
-    D -->|Estabilidad de Media y P95| E[PossibleTomorrow Scenarios]
-    E -->|scenarios.pkl| F[Bloque 3: Robust Optimizer]
-    F --> G[Ruta de Mínimo Arrepentimiento]
+### A. Construcción de Topología Multidimensional (Bloque 1)
 
-4. Resultados y Validación
-El sistema ha sido validado mediante pruebas de estrés contra "Cisnes Negros" logísticos.
+Transforma datos operativos en bruto (coordenadas, capacidades, perfiles de costo) en un **modelo de cinco matrices equilibradas**:
 
-(Figura 1: Comparación de densidad de probabilidad de costos. La curva azul (Estándar) subestima el riesgo de cola que la curva roja (Prime Logistics) captura).
+| Matriz/Variable | Descripción |
+|----------------|-------------|
+| **Matriz de Adyacencia (A)** | Representa la conectividad física de la red (qué nodos están vinculados). |
+| **Matriz de Costo (C)** | Costos de transporte por arco, basados en distancias reales (fórmula de Haversine) y tarifas. |
+| **Matriz de Tiempo (T)** | Tiempos de tránsito por arco, utilizando perfiles de velocidad estocásticos. |
+| **Matriz de Capacidad (K)** | Límites físicos de flujo (volumen/peso) por cada conexión. |
+| **Vector de Demanda (D)** | Balance de carga entre nodos de origen y destino. |
 
-Identificación de Cuellos de Botella Estocásticos: El modelo detectó que, ante una crisis de combustible, la capacidad de la red se degrada en un 20% debido a desviaciones operativas, incrementando la varianza de los tiempos de entrega en un 35%.
+### B. Motor Estocástico de Cascada (Bloque 2)
 
-Convergencia Dual: El motor alcanzó estabilidad estadística en 200 iteraciones, garantizando representatividad sin desperdicio de cómputo.
+Implementa un **modelo de propagación de riesgo jerárquico** que simula la realidad de mercados volátiles:
 
-5. Tech Stack
-Core: Python 3.10+
+1.  **Nivel Sistémico (Macro):** Eventos disruptivos mayores ("Cisnes Negros") que activan un **Índice de Estrés (S)**.
+2.  **Nivel Táctico (Red):** Fallos en nodos o conexiones específicas, cuya probabilidad de ocurrencia depende del estado sistémico.
+3.  **Nivel Operativo (Micro):** Ruido y variabilidad diaria (ej: tráfico, clima local) cuya intensidad se escala según el nivel de degradación ambiental.
 
-Computación Numérica: NumPy & SciPy (Estructuras de matrices dispersas para alta dimensionalidad).
+---
 
-Validación de Datos: Pydantic / Dataclasses para cumplimiento de contratos de red.
+## 3. Fundamentación Matemática (The "Logic")
 
-Simulación: Monte Carlo Engine con lógica de cascada condicional.
+### El Modelo de Intensidad de Riesgo
 
-6. Aviso de Propiedad Intelectual
-⚠️ CÓDIGO PRIVADO | DOCUMENTACIÓN PÚBLICA
+El núcleo del sistema es un **Índice de Estrés Agregado (S)**, que modifica dinámicamente los parámetros de la red en cada iteración de la simulación:
 
-El código fuente que implementa el motor de mutación matricial y las heurísticas de optimización es Propiedad Intelectual (IP) privada y constituye un prototipo comercial. La presente documentación se ofrece con fines de exposición de la lógica arquitectónica y robustez matemática.
+```
+S = Σ (wₖ · I{Sₖ activo})
+```
 
-7. Contacto
-Ariel Duarte - Engineering & Deep-Tech Development
+**Donde:**
+*   `wₖ` = Severidad estructural del evento *k*.
+*   `I{Sₖ activo}` = Función indicadora (1 si el evento sistémico *k* está activo, 0 si no).
 
-LinkedIn
+Basándose en `S`, las métricas clave de la red (como el tiempo medio de tránsito) se **recalculan en tiempo real**:
 
-Email: Arielduartejesus@gmail.com
+```
+μ_efectivo = μ_base · (1 + α · S)
+σ_efectivo = σ_base · (1 + β · S)
+```
+
+**Donde:**
+*   `μ_efectivo` = Media ajustada (ej: tiempo promedio de entrega).
+*   `σ_efectivo` = Desviación estándar ajustada (incertidumbre operativa).
+*   `α`, `β` = Factores de sensibilidad al estrés.
+
+### Condición de Diseño Fundamental
+
+El sistema garantiza que **`β > α`**. Esto significa que, en una crisis, la **incertidumbre (`σ`)** crece más rápido que el **retraso promedio (`μ`)**.
+
+**Interpretación:** Modela matemáticamente la **pérdida de predictibilidad y control operativo** característica de situaciones de crisis logística, donde los tiempos no solo empeoran, sino que se vuelven impredecibles.
+
+# PRIME LOGISTICS | Stochastic Risk & Topology Engine
+
+## 4. Arquitectura del Sistema
+
+El sistema está estructurado en **tres bloques modulares** que operan en secuencia:
+
+```
+┌─────────────────┐    ┌───────────────────┐    ┌─────────────────────┐
+│   BLOQUE 1      │    │    BLOQUE 2       │    │    BLOQUE 3        │
+│   Topología     │───▶│   Motor de Riesgo │───▶│   Optimización     │
+│   Multidimensional  │    │   Estocástico     │    │   (Futuro)         │
+└─────────────────┘    └───────────────────┘    └─────────────────────┘
+       │                         │                         │
+       ▼                         ▼                         ▼
+   Generación de            Simulación de            Planificación de
+   Modelo Estático          Escenarios de            Mitigación de
+   (A, C, T, K, D)          Cascada                  Riesgo
+```
+
+**Flujo de datos:** El **Bloque 1** transforma datos logísticos crudos en un modelo de red estructurado. Este modelo alimenta al **Bloque 2**, donde se somete a miles de perturbaciones simuladas. Los resultados de estas simulaciones (distribuciones de costos, tiempos y puntos de falla críticos) están diseñados para informar las estrategias del **Bloque 3**.
+
+---
+
+## 5. Rigor de Implementación (Tech Specs)
+
+### Manejo de Matrices Dispersas
+- **Tecnología:** Implementado con `scipy.sparse`.
+- **Formatos:** Uso estratégico de formatos **CSR** (operaciones eficientes) y **LIL** (construcción flexible).
+- **Objetivo:** Permite modelar redes a gran escala (> 10,000 nodos) con eficiencia de memoria O(n), evitando el cuello de botella de matrices densas O(n²).
+
+### Convergencia Estocástica Dual
+El motor no usa un número de iteraciones fijo. En su lugar, implementa un **criterio de parada adaptativo** basado en la estabilidad estadística de la simulación:
+```
+(Δσ² / σ²) < ε
+```
+**Donde:**
+- `Δσ²` = Cambio en la varianza de la métrica observada entre lotes de simulaciones.
+- `σ²` = Varianza actual de la métrica.
+- `ε` = Umbral de tolerancia predefinido (ej: 0.001).
+
+**Ventaja:** Garantiza que los resultados sean estadísticamente representativos sin ciclos de cómputo innecesarios.
+
+### Blindaje de Integridad
+- **Mecanismo:** El sistema incluye capas de resiliencia interna para manejar estados de red degradados.
+- **Función:** Gestiona automáticamente el *fallback* entre métricas cuando encuentra valores extremos (infinitos) o desconexiones totales del grafo. Prioriza el mantenimiento de la conectividad (`A`) sobre la capacidad (`K`) en escenarios de falla crítica.
+
+---
+
+## 6. Estado del Proyecto
+
+| Bloque | Nombre | Estado | Notas |
+|--------|---------|---------|-------|
+| **1** | Topología Multidimensional | ✅ **100% Finalizado** | Generación estable del modelo de 5 matrices (A, C, T, K, D). |
+| **2** | Motor de Riesgo Estocástico | ✅ **100% Finalizado** | Simulación de cascada con convergencia dual operativa. |
+| **3** | Optimización & Mitigación | 🚧 **En Diseño Conceptual** | Definición de la "Función Objetivo de Mínimo Arrepentimiento". |
+
+---
+
+## 7. Aviso de Propiedad Intelectual
+
+⚠️ **CÓDIGO PRIVADO | DOCUMENTACIÓN PÚBLICA**
+
+- **IP Privada:** La arquitectura del motor de riesgo, los algoritmos de mutación matricial y el núcleo de simulación son **Propiedad Intelectual (IP) privada**.
+- **Propósito del Repositorio:** Este espacio expone la lógica técnica, los fundamentos matemáticos y las capacidades del sistema para fines de **auditoría, colaboración académica y demostraciones de concepto**. No contiene el código fuente ejecutable completo.
+
+---
+
+## 8. Contacto
+
+**Ariel Duarte** - Engineering Student   
+- **LinkedIn:** www.linkedin.com/in/arielduarte-j 
+- **Email:** Arielduartejesus@gmail.com  
+
