@@ -82,7 +82,7 @@
 *Industrial Engineering Student*  
 *Estudiante de Ingeniería Industrial*
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](www.linkedin.com/in/arielduarte-j)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/arielduarte-j)
 [![Email](https://img.shields.io/badge/Email-Contact-red?logo=gmail)](mailto:arielduartejesus@gmail.com)
 
 </div>
