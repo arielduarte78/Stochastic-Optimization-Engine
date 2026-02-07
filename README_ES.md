@@ -15,6 +15,13 @@ Nuestro sistema  diferencia de un GPS común, somete cada ruta potencial a miles
 No te damos la ruta más rápida. Te damos la ruta más **Antifrágil**.
 
 ---
+## ¿Por que ahora?
+
+Prime Logistics nace en un punto de inflexión. La logística global dejó de operar en entornos estables y previsibles: interrupciones sistémicas, eventos climáticos extremos, conflictos geopolíticos y fallas en cascada se convirtieron en fenómenos estructurales, no excepciones. Sin embargo, la mayoría de los sistemas de optimización aún se basan en supuestos deterministas que ya no representan la realidad operativa.
+
+Al mismo tiempo, recién ahora convergen las condiciones técnicas necesarias para abordar este problema de forma rigurosa: capacidad de cómputo accesible, simulación estocástica a gran escala y herramientas maduras para inferencia probabilística en producción. Lo que durante años fue dominio exclusivo de papers académicos hoy puede ejecutarse como software operativo.
+
+Finalmente, el criterio de decisión empresarial cambió. Las organizaciones ya no maximizan solo eficiencia promedio; priorizan resiliencia, visibilidad del riesgo y supervivencia bajo estrés. Prime Logistics existe porque el costo de no modelar la incertidumbre hoy es mayor que el costo de enfrentarla.
 
 ## Arquitectura del Sistema
 
