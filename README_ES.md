@@ -1,145 +1,104 @@
-# PRIME LOGISTICS | Stochastic Risk & Topology Engine
+#  PRIME LOGISTICS
 
-## Cuantificación de Fragilidad en Redes de Suministro mediante Modelado de Cascada Jerárquica
+## El Problema: La Ilusión de la Certeza
 
----
+El mundo real es caótico. Huelgas, fallos mecánicos, cortes de ruta y crisis climáticas ("Cisnes Negros") son la norma, no la excepción. Sin embargo, el software logístico actual sigue optimizando rutas asumiendo que **todo saldrá bien**.
 
-## 1. Resumen Ejecutivo 
+**El resultado:** Cadenas de suministro frágiles que colapsan ante la primera perturbación, costando millones en retrasos y stock roto.
 
-En logística industrial, la mayoría de los sistemas de planificación fallan porque asumen condiciones ideales y estáticas. **PRIME LOGISTICS** no es simplemente un sistema de ruteo; es un **motor de estrés operacional** que cuantifica el riesgo oculto dentro de su infraestructura de suministro.
+## La Solución: Prime Logistics
 
-Mediante una arquitectura de simulación **Monte Carlo con Convergencia Dual**, el motor genera miles de "escenarios de degradación" para identificar no solo los puntos de falla de la red, sino también cómo se ven afectados los costos y tiempos de entrega bajo presión sistémica.
+Prime Logistics es un **Motor de Decisión Estocástica**. No predecimos el futuro; preparamos la red para resistirlo.
 
-**Propósito principal:** Permitir que las organizaciones midan y comprendan la resiliencia real de sus redes logísticas antes de que ocurra una crisis.
+Nuestro sistema  diferencia de un GPS común, somete cada ruta potencial a miles de escenarios de fallo simulados, aprende de ellos mediante **Inferencia Bayesiana** y selecciona estrategias basándose en la **Física de la Información (Entropía)**.
 
----
-
-## 2. Capacidades Actuales 
-
-### A. Construcción de Topología Multidimensional (Bloque 1)
-
-Transforma datos operativos en bruto (coordenadas, capacidades, perfiles de costo) en un **modelo de cinco matrices equilibradas**:
-
-| Matriz/Variable | Descripción |
-|----------------|-------------|
-| **Matriz de Adyacencia (A)** | Representa la conectividad física de la red (qué nodos están vinculados). |
-| **Matriz de Costo (C)** | Costos de transporte por arco, basados en distancias reales (fórmula de Haversine) y tarifas. |
-| **Matriz de Tiempo (T)** | Tiempos de tránsito por arco, utilizando perfiles de velocidad estocásticos. |
-| **Matriz de Capacidad (K)** | Límites físicos de flujo (volumen/peso) por cada conexión. |
-| **Vector de Demanda (D)** | Balance de carga entre nodos de origen y destino. |
-
-### B. Motor Estocástico de Cascada (Bloque 2)
-
-Implementa un **modelo de propagación de riesgo jerárquico** que simula la realidad de mercados volátiles:
-
-1.  **Nivel Sistémico (Macro):** Eventos disruptivos mayores ("Cisnes Negros") que activan un **Índice de Estrés (S)**.
-2.  **Nivel Táctico (Red):** Fallos en nodos o conexiones específicas, cuya probabilidad de ocurrencia depende del estado sistémico.
-3.  **Nivel Operativo (Micro):** Ruido y variabilidad diaria (ej: tráfico, clima local) cuya intensidad se escala según el nivel de degradación ambiental.
+No te damos la ruta más rápida. Te damos la ruta más **Antifrágil**.
 
 ---
 
-## 3. Fundamentación Matemática 
+## 🏗️ Arquitectura del Sistema
 
-### El Modelo de Intensidad de Riesgo
+El sistema opera como un pipeline secuencial de 4 fases, transformando datos físicos en decisiones estratégicas.
 
-El núcleo del sistema es un **Índice de Estrés Agregado (S)**, que modifica dinámicamente los parámetros de la red en cada iteración de la simulación:
-
-```
-S = Σ (wₖ · I{Sₖ activo})
-```
-
-**Donde:**
-*   `wₖ` = Severidad estructural del evento *k*.
-*   `I{Sₖ activo}` = Función indicadora (1 si el evento sistémico *k* está activo, 0 si no).
-
-Basándose en `S`, las métricas clave de la red (como el tiempo medio de tránsito) se **recalculan en tiempo real**:
+```mermaid
+graph LR
+    B1[DIGITAL TWIN] -->|Topología| B2[CHAOS ENGINE]
+    B2 -->|Simulación de Fallos| B3[BAYESIAN JUDGE]
+    B3 -->|Mapa de Riesgo| B4[PRIME STRATEGIST]
+    B4 -->|Decisión Final| User
 
 ```
-μ_efectivo = μ_base · (1 + α · S)
-σ_efectivo = σ_base · (1 + β · S)
-```
 
-**Donde:**
-*   `μ_efectivo` = Media ajustada (ej: tiempo promedio de entrega).
-*   `σ_efectivo` = Desviación estándar ajustada (incertidumbre operativa).
-*   `α`, `β` = Factores de sensibilidad al estrés.
+### 1. Bloque 1: Digital Twin (Topología)
 
-### Condición de Diseño Fundamental
+Ingesta datos geográficos y operativos para crear una representación matricial exacta de la red logística. Valida la integridad física antes de cualquier cálculo.
 
-El sistema garantiza que **`β > α`**. Esto significa que, en una crisis, la **incertidumbre (`σ`)** crece más rápido que el **retraso promedio (`μ`)**.
+### 2. Bloque 2: Chaos Engine (Simulación)
 
-**Interpretación:** Modela matemáticamente la **pérdida de predictibilidad y control operativo** característica de situaciones de crisis logística, donde los tiempos no solo empeoran, sino que se vuelven impredecibles.
+El corazón del estrés. Utilizamos métodos de **Monte Carlo** para bombardear la red digital con miles de incidentes aleatorios y sistémicos.
 
-# PRIME LOGISTICS | Stochastic Risk & Topology Engine
+* *¿Qué pasa si hay paro de transporte?*
+* *¿Qué pasa si el nodo central pierde un 40% de capacidad?*
 
-## 4. Arquitectura del Sistema
+### 3. Bloque 3: Bayesian Auditor (Juicio)
 
-El sistema está estructurado en **tres bloques modulares** que operan en secuencia:
+Transformamos el caos en conocimiento. Un motor de **Inferencia Bayesiana** analiza los resultados de las simulaciones. Utiliza distribuciones *Beta-Binomiales* para actualizar la probabilidad real de fallo de cada nodo, aprendiendo de la experiencia simulada.
 
-```
-┌─────────────────┐    ┌───────────────────┐    ┌─────────────────────┐
-│   BLOQUE 1      │    │    BLOQUE 2       │    │    BLOQUE 3        │
-│   Topología     │───▶│   Motor de Riesgo │───▶│   Optimización     │
-│   Multidimensional  │    │   Estocástico     │    │   (Futuro)         │
-└─────────────────┘    └───────────────────┘    └─────────────────────┘
-       │                         │                         │
-       ▼                         ▼                         ▼
-   Generación de            Simulación de            Planificación de
-   Modelo Estático          Escenarios de            Mitigación de
-   (A, C, T, K, D)          Cascada                  Riesgo
-```
+### 4. Bloque 4: Prime Strategist (Decisión)
 
-**Flujo de datos:** El **Bloque 1** transforma datos logísticos crudos en un modelo de red estructurado. Este modelo alimenta al **Bloque 2**, donde se somete a miles de perturbaciones simuladas. Los resultados de estas simulaciones (distribuciones de costos, tiempos y puntos de falla críticos) están diseñados para informar las estrategias del **Bloque 3**.
+El cerebro. No busca un solo óptimo. Explora la **Frontera de Pareto** para encontrar el equilibrio perfecto entre:
+
+* **Costo Financiero ($)**
+* **Rigidez Estructural**
+* **Entropía de Shannon (Distribución del Riesgo)**
+
+Finalmente, un motor de narrativa genera un reporte estratégico comprensible para humanos, clasificando las rutas en arquetipos como *"El Unicornio"* (Barato y Seguro) o *"El Tanque"* (Caro pero Indestructible).
 
 ---
 
-## 5. Rigor de Implementación 
+## Diferenciales
 
-### Manejo de Matrices Dispersas
-- **Tecnología:** Implementado con `scipy.sparse`.
-- **Formatos:** Uso estratégico de formatos **CSR** (operaciones eficientes) y **LIL** (construcción flexible).
-- **Objetivo:** Permite modelar redes a gran escala (> 10,000 nodos) con eficiencia de memoria O(n), evitando el cuello de botella de matrices densas O(n²).
+Lo que hace a Prime Logistics único no es el código, son los **Primeros Principios** matemáticos aplicados:
 
-### Convergencia Estocástica Dual
-El motor no usa un número de iteraciones fijo. En su lugar, implementa un **criterio de parada adaptativo** basado en la estabilidad estadística de la simulación:
-```
-(Δσ² / σ²) < ε
-```
-**Donde:**
-- `Δσ²` = Cambio en la varianza de la métrica observada entre lotes de simulaciones.
-- `σ²` = Varianza actual de la métrica.
-- `ε` = Umbral de tolerancia predefinido (ej: 0.001).
-
-**Ventaja:** Garantiza que los resultados sean estadísticamente representativos sin ciclos de cómputo innecesarios.
-
-### Blindaje de Integridad
-- **Mecanismo:** El sistema incluye capas de resiliencia interna para manejar estados de red degradados.
-- **Función:** Gestiona automáticamente el *fallback* entre métricas cuando encuentra valores extremos (infinitos) o desconexiones totales del grafo. Prioriza el mantenimiento de la conectividad (`A`) sobre la capacidad (`K`) en escenarios de falla crítica.
+| Concepto | Aplicación en Prime | Beneficio |
+| --- | --- | --- |
+| **Entropía de Shannon** | Medimos la "incertidumbre" de una ruta. | Evitamos "Puntos Únicos de Falla" invisibles. |
+| **Priors Bayesianos** | Modelamos la creencia inicial vs. evidencia. | Detectamos fragilidad incluso con pocos datos. |
+| **Frontera de Pareto** | Optimización Multiobjetivo. | Revelamos *trade-offs* reales en lugar de ocultarlos. |
 
 ---
 
-## 6. Estado del Proyecto
+## Estado del Proyecto
 
-| Bloque | Nombre | Estado | Notas |
-|--------|---------|---------|-------|
-| **1** | Topología Multidimensional |  **Finalizado** | Generación estable del modelo de 5 matrices (A, C, T, K, D). |
-| **2** | Motor de Riesgo Estocástico |  **Finalizado** | Simulación de cascada con convergencia dual operativa. |
-| **3** | Optimización & Mitigación |  **En Diseño Conceptual** | Definición de la "Función Objetivo de Mínimo Arrepentimiento". |
+El núcleo del sistema (**MVP v1.0**) está completo y operativo.
 
----
-
-## 7. Aviso de Propiedad Intelectual
-
- **CÓDIGO PRIVADO | DOCUMENTACIÓN PÚBLICA**
-
-- **IP Privada:** La arquitectura del motor de riesgo, los algoritmos de mutación matricial y el núcleo de simulación son **Propiedad Intelectual (IP) privada**.
-- **Propósito del Repositorio:** Este espacio expone la lógica técnica, los fundamentos matemáticos y las capacidades del sistema para fines de **auditoría, colaboración académica y demostraciones de concepto**. No contiene el código fuente ejecutable completo.
+* [x] **Ingeniería de Topología:** ✅ Finalizado.
+* [x] **Simulación Estocástica:** ✅ Finalizado (Convergencia adaptativa).
+* [x] **Motor Bayesiano:** ✅ Finalizado.
+* [x] **Optimizador Estratégico:** ✅ Finalizado.
 
 ---
 
-## 8. Contacto
+## Aviso de Propiedad Intelectual
 
-**Ariel Duarte** - Engineering Student   
-- **LinkedIn:** www.linkedin.com/in/arielduarte-j 
-- **Email:** Arielduartejesus@gmail.com  
+**PRIVATE SOURCE CODE | PUBLIC DOCUMENTATION**
+
+Este repositorio sirve como **documentación conceptual**.
+La implementación exacta de los algoritmos estocásticos, el pipeline de inferencia y la arquitectura del motor de decisión son **Propiedad Intelectual Privada** y no están incluidos en este repositorio público.
+
+*El objetivo de este documento es demostrar la arquitectura.*
+
+---
+
+## 👤 Sobre el Autor
+
+**Ariel Duarte**
+Con 20 años y formación en Ingeniería Industrial, desarrollé Prime Logistics para cerrar la brecha entre la teoría matemática compleja y la operación logística real. Mi enfoque combina la rigurosidad académica con la ejecución de software de alto nivel.
+
+📩 **Contacto:** [Arielduartejesus@gmail.com](mailto:Arielduartejesus@gmail.com)
+🔗 **LinkedIn:** [linkedin.com/in/arielduarte-j](https://www.google.com/search?q=https://www.linkedin.com/in/arielduarte-j)
+
+---
+
+*© 2026 Prime Logistics. Built to survive.*
 
