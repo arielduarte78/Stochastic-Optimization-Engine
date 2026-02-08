@@ -103,7 +103,7 @@ The exact implementation of the stochastic algorithms, the inference pipeline, a
 At 20 years old with a background in Industrial Engineering, I developed Prime Logistics to bridge the gap between complex mathematical theory and real logistics operation. My approach combines academic rigor with high-level software execution.
 
 📩 **Contact:** [Arielduartejesus@gmail.com](mailto:Arielduartejesus@gmail.com)
-🔗 **LinkedIn:** [linkedin.com/in/arielduarte-j](https://www.google.com/search?q=https://www.linkedin.com/in/arielduarte-j)
+🔗 **LinkedIn:** [linkedin.com/in/arielduarte-j](https://www.linkedin.com/in/arielduarte-j/)
 
 ---
 
