@@ -199,8 +199,8 @@ Este conjunto constituye la evidencia empírica que alimenta al Bloque III.
 
 ## 9. Interpretación Fundamental
 
-Este bloque no modela el "futuro más probable". Modela el espacio de estrés plausible al que una red puede verse sometida.
-La fragilidad no se asume: emerge.
+Este bloque modela el espacio de estrés plausible al que una red puede verse sometida.
+La fragilidad no se asume, emerge.
 
 
 # Bloque III — Bayesian Auditor: Inferencia de Fragilidad Bajo Evidencia No-IID
@@ -209,7 +209,7 @@ La fragilidad no se asume: emerge.
 
 El Bayesian Auditor transforma el conjunto de escenarios simulados por el Chaos Engine en conocimiento probabilístico estructurado.
 
-Su función no es describir lo que ocurrió en la simulación, sino inferir parámetros latentes del sistema: fragilidad, riesgo residual y confiabilidad efectiva de nodos y arcos, bajo condiciones de dependencia, correlación y evidencia sintética.
+Su función es inferir parámetros latentes del sistema: fragilidad, riesgo residual y confiabilidad efectiva de nodos y arcos, bajo condiciones de dependencia, correlación y evidencia sintética.
 
 **Este bloque responde a una pregunta central:**
 
@@ -223,7 +223,7 @@ Los datos producidos por el Bloque II no cumplen los supuestos clásicos de la i
 - **No son idénticamente distribuidos** (escenarios heterogéneos).
 - **No provienen del mundo real**, sino de simulación estructurada.
 
-Por lo tanto, el objetivo no es estimar una probabilidad frecuentista "real", sino actualizar creencias racionales sobre el comportamiento del sistema bajo estrés.
+Por lo tanto, el objetivo es actualizar creencias racionales sobre el comportamiento del sistema bajo estrés.
 
 **Esto sitúa naturalmente el problema en un marco Bayesiano.**
 
@@ -290,15 +290,15 @@ La fragilidad inferida se define como la esperanza posterior:
 
 **φ̂ᵤ = 1 − E[θᵤ] = 1 − (α₀ + sᵤ) / (α₀ + β₀ + N)**
 
-Este valor no es una "probabilidad verdadera", sino una medida racional de riesgo estructural, condicionada al espacio de estrés explorado.
+Este valor es una medida racional de riesgo estructural, condicionada al espacio de estrés explorado.
 
 ## 8. Evidencia Correlacionada y Justificación Epistémica
 
 Aunque las observaciones no son i.i.d., el uso del modelo Beta es epistémicamente válido porque:
 
-- El objetivo no es inferencia causal, sino evaluación de fragilidad.
+- El objetivo es la evaluación de fragilidad.
 - La correlación es inducida deliberadamente para revelar vulnerabilidades sistémicas.
-- El modelo actúa como un agregador de evidencia bajo estrés, no como un estimador frecuentista.
+- El modelo actúa como un agregador de evidencia bajo estrés.
 
 En este contexto, el posterior refleja:
 
@@ -312,7 +312,7 @@ El resultado del bloque es un vector:
 
 Este mapa de fragilidad se convierte en una nueva capa semántica de la red, desacoplada de la topología física.
 
-**A partir de este punto:**
+A partir de este punto:
 
 - La red deja de ser solo geométrica,
 - Pasa a ser probabilística y estratégica.
@@ -332,7 +332,7 @@ Este output alimenta directamente al Bloque IV, donde la optimización deja de s
 
 ## 4. Agregación del Riesgo
 
-El riesgo total de una ruta **no se modela como una suma ingenua de probabilidades.**
+El riesgo total de una ruta no se modela como una suma de probabilidades.
 
 Sea **φ̂ₑ** la fragilidad inferida de cada arco **e ∈ R**.
 
@@ -368,12 +368,12 @@ En su lugar, construye la **Frontera de Pareto** en el espacio:
 
 **(C(R), Φ(R), 1 − Hₙₒᵣₘ(R))**
 
-Una ruta es **Pareto-dominada** si existe otra que:
+Una ruta es Pareto-dominada si existe otra que:
 
 - No es peor en ningún criterio,
 - Y es estrictamente mejor en al menos uno.
 
-**El resultado es un conjunto de soluciones eficientes, no una única respuesta.**
+El resultado es un conjunto de soluciones eficientes.
 
 ## 7. Escalarización Estratégica (Opcional)
 
@@ -386,7 +386,7 @@ donde:
 - **λ**: aversión al riesgo,
 - **γ**: penalización por rigidez estructural.
 
-Estos parámetros **no son técnicos, sino estratégicos.**  
+Estos parámetros son estratégicos. 
 Representan la postura de decisión del operador.
 
 ## 8. Algoritmos Utilizados
@@ -396,8 +396,7 @@ Para exploración y resolución:
 - Variantes de Dijkstra multi-criterio,
 - Poda por dominancia de Pareto,
 - Heurísticas de enumeración de rutas factibles.
-
-**No se busca exhaustividad combinatoria, sino suficiencia decisional bajo restricciones reales.**
+Se busca la insuficiencia decisional bajo restricciones reales.
 
 ## 9. Clasificación Estratégica de Soluciones
 
@@ -408,7 +407,7 @@ Las rutas resultantes se agrupan en arquetipos interpretables:
 - **El Equilibrista**: compromiso eficiente.
 - **El Ilusionista**: barato pero frágil (riesgo oculto).
 
-Esto convierte el output matemático en **lenguaje de decisión humana.**
+Esto convierte el output matemático en lenguaje de decisión humana.
 
 ## 10. Interpretación Final
 
@@ -416,7 +415,7 @@ Este bloque formaliza una idea central:
 
 > En sistemas complejos, decidir es elegir qué error estás dispuesto a tolerar.
 
-Prime Logistics **no promete certezas.**  
+Prime Logistics no promete certezas.  
 Entrega algo más valioso:
 
 - Visibilidad de trade-offs,
