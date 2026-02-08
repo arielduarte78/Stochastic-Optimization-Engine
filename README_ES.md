@@ -103,7 +103,7 @@ La implementación exacta de los algoritmos estocásticos, el pipeline de infere
 Con 20 años y formación en Ingeniería Industrial, desarrollé Prime Logistics para cerrar la brecha entre la teoría matemática compleja y la operación logística real. Mi enfoque combina la rigurosidad académica con la ejecución de software de alto nivel.
 
 📩 **Contacto:** [Arielduartejesus@gmail.com](mailto:Arielduartejesus@gmail.com)
-🔗 **LinkedIn:** [linkedin.com/in/arielduarte-j](https://www.google.com/search?q=https://www.linkedin.com/in/arielduarte-j)
+🔗 **LinkedIn:** [linkedin.com/in/arielduarte-j](https://www.linkedin.com/in/arielduarte-j/)
 
 ---
 
