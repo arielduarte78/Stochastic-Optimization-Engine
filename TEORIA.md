@@ -70,7 +70,7 @@ Sea **n = |V|**. Se definen las siguientes matrices en **ℝⁿˣⁿ**:
 - **Matriz de Costos C = (cᵢⱼ)**
 - **Matriz de Tiempos T = (tᵢⱼ)**
 - **Matriz de Capacidades K = (kᵢⱼ)**
-- **Matriz de Distancias D = (dᵢⱼ)**
+- **Matriz de Demanda = (dᵢⱼ)**
 
 Todas las matrices comparten el mismo espacio de índices **V × V**, lo que garantiza coherencia estructural entre dimensiones.
 
