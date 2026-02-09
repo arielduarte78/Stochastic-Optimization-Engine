@@ -40,106 +40,99 @@ El sistema logístico se modela como un grafo dirigido:
 
 **G = (V, E)**
 
-donde:
+Donde:
 
-- **V = {v₁, ..., vₙ}** es el conjunto finito de nodos logísticos (plantas productivas, depósitos, cross-docks, puntos de demanda).
-- **E ⊆ V × V** es el conjunto de arcos dirigidos que representan enlaces de transporte físicamente factibles.
+- **V = {v₁, ..., vₙ}** es el conjunto finito de nodos logísticos (plantas, depósitos, clientes), identificados por coordenadas geográficas validadas (φ, λ).
+- **E ⊆ V × V** es el conjunto de arcos dirigidos que representan enlaces de transporte físicamente factibles y activos.
 
-Cada arco **eᵢⱼ ∈ E** está caracterizado por un vector de atributos observables:
+Cada arco **eᵢⱼ ∈ E** está caracterizado por un vector de atributos escalares proyectados:
 
-**eᵢⱼ = (cᵢⱼ, tᵢⱼ, kᵢⱼ, dᵢⱼ)**
+**w⃗ᵢⱼ = [cᵢⱼ, tᵢⱼ, kᵢⱼ]ᵀ**
 
-donde:
+Donde:
 
-- **cᵢⱼ ∈ ℝ⁺** representa el costo monetario esperado,
-- **tᵢⱼ ∈ ℝ⁺** representa el tiempo de tránsito esperado,
-- **kᵢⱼ ∈ ℝ⁺** representa la capacidad máxima de transporte,
-- **dᵢⱼ ∈ ℝ⁺** representa la distancia física u otra métrica espacial equivalente.
+- **cᵢⱼ ∈ ℝ⁺**: Costo monetario determinista normalizado (resultado de la proyección de CostProfile sobre la distancia geodésica).
+- **tᵢⱼ ∈ ℝ⁺**: Tiempo de tránsito esperado en condiciones nominales (basado en SpeedProfile).
+- **kᵢⱼ ∈ ℝ⁺**: Capacidad máxima de flujo del arco (restricción física de la vía, no del vehículo).
 
 Estas magnitudes se tratan como parámetros exógenos y observados. En este bloque no se les asigna interpretación probabilística alguna.
 
 ### 2. Representación Matricial Multicapa
 
-En lugar de operar directamente sobre la estructura del grafo, el sistema proyecta **G** a una representación matricial multicapa, que actúa como descripción canónica del estado de la red.
+En lugar de operar sobre objetos, el sistema proyecta **G** a un espacio vectorial mediante una representación matricial multicapa. Esta es la descripción canónica del estado base de la red.
 
-Sea **n = |V|**. Se definen las siguientes matrices en **ℝⁿˣⁿ**:
+Sea **n = |V|**. Se definen las siguientes estructuras algebraicas:
 
+#### A. Matrices de Topología y Flujo (ℝⁿˣⁿ)
 
-#### Matrices de Atributos
-- **Matriz de adyacencia A = (Aᵢⱼ)**
-- **Matriz de Costos C = (cᵢⱼ)**
-- **Matriz de Tiempos T = (tᵢⱼ)**
-- **Matriz de Capacidades K = (kᵢⱼ)**
-- **Vector de Demanda = (dᵢⱼ)**
+**Matriz de Adyacencia (A):** Define la conectividad topológica pura. Aᵢⱼ = 1 si existe camino valido, 0 no hay camino valido (i,j) ∈ E
 
-**Vector de Demanda d:**
+**Matriz de Costos (C):** Contiene los costos operativos **cᵢⱼ**.
 
-d ∈ ℝⁿ = [d₁, d₂, ..., dₙ]ᵀ
+**Matriz de Tiempos (T):** Contiene los tiempos de tránsito **tᵢⱼ**.
 
-**dᵢ:** La cantidad de carga que el nodo i necesita recibir (o entregar).
+**Matriz de Capacidades de Arco (K):** Define el límite superior de flujo permitido en el arco (i,j) (ej. tonelaje máximo de un puente o vía).
 
-Todas las matrices comparten el mismo espacio de índices **V × V**, lo que garantiza coherencia estructural entre dimensiones.
+#### B. Vector de Estado Nodal (ℝⁿ)
 
-Esta descomposición permite:
+**Vector de Demanda Neta (d):** d ∈ ℝⁿ = [d₁, d₂, ..., dₙ]ᵀ
 
-- Manipulación independiente de atributos físicos,
-- Degradación controlada de dimensiones específicas,
-- Preservación de invariantes topológicos durante perturbaciones estocásticas.
+Donde **dᵢ** representa el balance de carga del nodo:
 
-**La red no colapsa bajo estrés; transita por estados matemáticamente admisibles.**
+- **dᵢ > 0**: Nodo de Demanda (Cliente)
+- **dᵢ < 0**: Nodo de Oferta (Depósito/Planta)
+- **dᵢ = 0**: Nodo de Transbordo (Paso)
+
+Todas las matrices comparten el mismo espacio de índices **V × V**, garantizando coherencia estructural para operaciones de álgebra lineal vectorizada.
 
 ### 3. Validez Topológica y Restricciones de Factibilidad
 
-Antes de habilitar cualquier proceso estocástico o inferencial, el gemelo digital debe satisfacer condiciones mínimas de factibilidad.
+Antes de habilitar cualquier proceso estocástico, el gemelo digital debe satisfacer condiciones estrictas de factibilidad, garantizadas por el módulo NetworkValidator.
 
 Formalmente, se imponen las siguientes restricciones:
 
 #### Consistencia Estructural
-Todas las matrices respetan el patrón de dispersión inducido por **A**.
+Todas las matrices de atributos (C, T, K) deben respetar el patrón de dispersión (sparsity pattern) inducido por **A**.
+Aᵢⱼ = 0 ⇒ Cᵢⱼ, Tᵢⱼ, Kᵢⱼ = ∅ (o valor nulo/infinito según contexto)
 
 #### Admisibilidad Física
-**cᵢⱼ > 0, tᵢⱼ > 0, kᵢⱼ > 0 ∀(i,j) ∈ E**
+cᵢⱼ > 0, tᵢⱼ > 0, kᵢⱼ ≥ 0 ∀(i,j) ∈ E
+
+Esto impide la existencia de ciclos de costo negativo o tiempos de viaje instantáneos que violen la causalidad.
 
 #### Conectividad Funcional
-Para pares origen–destino designados **(s,t)**, existe al menos un camino dirigido en **G**.
-
-Si alguna de estas condiciones se viola, la instancia es explícitamente rechazada. En ese caso, el problema no es de optimización bajo incertidumbre, sino de fallo en el diseño de la red.
+El subgrafo inducido por los arcos activos debe garantizar caminos dirigidos desde los nodos de oferta ({i | dᵢ < 0}) hacia los nodos de demanda ({j | dⱼ > 0}).
 
 ### 4. Separación Estricta entre Estructura e Incertidumbre
 
-Un principio central de diseño en Prime Logistics es la separación rigurosa entre topología y riesgo.
+Un principio central de diseño en Prime Logistics es la separación rigurosa entre **Topología (Bloque I)** y **Riesgo (Bloque II)**.
 
 **En el Bloque I:**
-- Ningún arco posee probabilidad de fallo,
-- No se modela comportamiento aleatorio alguno,
-- No se asume incertidumbre.
+- Ningún arco posee probabilidad de fallo.
+- Los costos y tiempos son valores escalares fijos (esperanzas matemáticas nominales).
+- No se modela comportamiento aleatorio.
 
-La red se trata como un sistema físico determinista.
-
-La incertidumbre se introduce únicamente más adelante, como un operador externo que actúa sobre esta estructura.
-
-Esta separación evita errores conceptuales frecuentes en modelos tradicionales, donde las suposiciones probabilísticas se incrustan prematuramente en la red.
+La red se trata como un sistema físico determinista e inmutable. La incertidumbre se introduce únicamente más adelante como un operador de perturbación externo.
 
 ### 5. Proyección Algorítmica (Nota de Implementación)
 
-Si bien el framework es inherentemente no determinista, la construcción y validación del gemelo digital utilizan algoritmos clásicos de grafos como herramientas auxiliares de proyección.
+La construcción del gemelo digital utiliza algoritmos de grafos clásicos y álgebra matricial (numpy/scipy) como mecanismos de proyección.
 
-En particular:
+- El cálculo de atributos utiliza distancia geodésica (Haversine) vectorizada.
+- Los perfiles de costos complejos (CostProfile) se linealizan a valores escalares para construir la matriz **C**.
 
-- Algoritmos de caminos mínimos (por ejemplo, Dijkstra) se emplean para verificar conectividad y generar rutas factibles de referencia,
-- Dichos algoritmos operan exclusivamente sobre instancias deterministas de la red.
-
-**Su rol es interrogar la estructura, no tomar decisiones.**
+**Su rol es interrogar la estructura estática, no tomar decisiones bajo riesgo.**
 
 La inteligencia del sistema emerge únicamente cuando estas proyecciones deterministas son sometidas a estrés estocástico en los bloques posteriores.
 
 ### 6. Rol Funcional dentro del Pipeline
 
-El Bloque I establece:
+El Bloque I entrega:
 
-- Una representación matemática explícita de la red logística,
-- Un gemelo digital validado y libre de ambigüedad semántica,
-- Un sustrato limpio sobre el cual pueden actuar la simulación estocástica y la inferencia bayesiana.
+- Una representación matricial explícita (A, C, T, K, d).
+- Un gemelo digital validado y libre de ambigüedad semántica.
+- Un sustrato limpio sobre el cual pueden actuar la simulación de Monte Carlo y la inferencia Bayesiana.
+
 
 
 # Bloque II — Chaos Engine: Simulación Estocástica Bajo Incertidumbre Estructural
