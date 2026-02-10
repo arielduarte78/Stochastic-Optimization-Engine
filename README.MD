@@ -69,11 +69,11 @@
 <td align="center">
   <h3> PRIVATE SOURCE CODE | PUBLIC DOCUMENTATION</h3>
   <p>
-    This repository serves as a <strong>technical showcase</strong>.<br/>
+   
     The proprietary algorithms for stochastic optimization and Bayesian inference are private.
   </p>
   <p>
-    Este repositorio sirve como <strong>vitrina técnica</strong>.<br/>
+    
     Los algoritmos propietarios de optimización estocástica e inferencia bayesiana son privados.
   </p>
 </td>
