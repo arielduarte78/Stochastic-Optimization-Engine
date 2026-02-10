@@ -36,72 +36,51 @@
 
 <hr/>
 
-##  System Capabilities / Capacidades del Sistema
+## System Capabilities / Capacidades del Sistema
 
-<table>
-<tr>
-<th width="50%">🇬🇧 English</th>
-<th width="50%">🇪🇸 Español</th>
-</tr>
-<tr>
-<td valign="top">
-  <p>
-    <strong>Prime Logistics</strong> is a modular decision engine that transforms physical topology into strategic resilience using <strong>Monte Carlo</strong> chaos simulation and <strong>Bayesian</strong> judgment.
-  </p>
-  <p>It does not just find the fastest route; it finds the route that survives.</p>
-  <p><strong>Core Pillars:</strong></p>
-  <ul>
-    <li> <strong>Digital Twin:</strong> 5-Matrix Topology.</li>
-    <li> <strong>Chaos Engine:</strong> Stochastic Stress-Testing.</li>
-    <li> <strong>Bayesian Auditor:</strong> Fragility Inference.</li>
-    <li> <strong>Prime Strategist:</strong> Pareto & Entropy Optimization.</li>
-  </ul>
-</td>
-<td valign="top">
-  <p>
-    <strong>Prime Logistics</strong> es un motor de decisión modular que transforma la topología física en resiliencia estratégica utilizando simulación de caos <strong>Monte Carlo</strong> y juicio <strong>Bayesiano</strong>.
-  </p>
-  <p>No busca solo la ruta más rápida; busca la ruta que sobrevive.</p>
-  <p><strong>Pilares Centrales:</strong></p>
-  <ul>
-    <li> <strong>Gemelo Digital:</strong> Topología de 5 Matrices.</li>
-    <li> <strong>Motor de Caos:</strong> Stress-Testing Estocástico.</li>
-    <li> <strong>Auditor Bayesiano:</strong> Inferencia de Fragilidad.</li>
-    <li> <strong>Estratega Prime:</strong> Optimización de Pareto y Entropía.</li>
-  </ul>
-</td>
-</tr>
-</table>
+**🇬🇧 English**
+
+**Prime Logistics** is a modular decision engine that transforms physical topology into strategic resilience using **Monte Carlo** chaos simulation and **Bayesian** judgment.
+
+It does not just find the fastest route; it finds the route that survives.
+
+**Core Pillars:**
+
+- **Digital Twin:** 5-Matrix Topology.
+- **Chaos Engine:** Stochastic Stress-Testing.
+- **Bayesian Auditor:** Fragility Inference.
+- **Prime Strategist:** Pareto & Entropy Optimization.
+
+**🇪🇸 Español**
+
+**Prime Logistics** es un motor de decisión modular que transforma la topología física en resiliencia estratégica utilizando simulación de caos **Monte Carlo** y juicio **Bayesiano**.
+
+No busca solo la ruta más rápida; busca la ruta que sobrevive.
+
+**Pilares Centrales:**
+
+- **Gemelo Digital:** Topología de 5 Matrices.
+- **Motor de Caos:** Stress-Testing Estocástico.
+- **Auditor Bayesiano:** Inferencia de Fragilidad.
+- **Estratega Prime:** Optimización de Pareto y Entropía.
 
 <hr/>
 
-##  Intellectual Property / Propiedad Intelectual
+## Intellectual Property / Propiedad Intelectual
 
-<table>
-<tr>
-<td align="center">
-  <h3> PRIVATE SOURCE CODE | PUBLIC DOCUMENTATION</h3>
-  <p>
-   
-    The proprietary algorithms for stochastic optimization and Bayesian inference are private.
-  </p>
-  <p>
-    
-    Los algoritmos propietarios de optimización estocástica e inferencia bayesiana son privados.
-  </p>
-</td>
-</tr>
-</table>
+**PRIVATE SOURCE CODE | PUBLIC DOCUMENTATION**
+
+The proprietary algorithms for stochastic optimization and Bayesian inference are private.
+
+Los algoritmos propietarios de optimización estocástica e inferencia bayesiana son privados.
 
 <br/>
 
-##  Author / Autor
+## Author / Autor
 
 **Ariel Duarte**
-<br/>
 *Industrial Engineering student*
 
-<p>
 <a href="https://www.linkedin.com/in/arielduarte-j/">
   <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
 </a>
@@ -109,8 +88,5 @@
 <a href="mailto:arielduartejesus@gmail.com">
   <img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
 </a>
-</p>
 
-<p align="center">
-  <i>© 2026 Prime Logistics. Built to survive.</i>
-</p>
+*© 2026 Prime Logistics. Built to survive.*
