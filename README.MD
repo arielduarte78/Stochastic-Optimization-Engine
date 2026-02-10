@@ -21,6 +21,19 @@
   </a>
 </p>
 
+<p align="center">
+  <strong>Leer la teoría en / Read theory in</strong>
+  <br/>
+  <br/>
+  <a href="TEORIA.md">
+    <img src="https://img.shields.io/badge/ESPAÑOL-Modelo%20Matemático-008000?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Teoría Español">
+  </a>
+  &nbsp;
+  <a href="THEORY.md">
+    <img src="https://img.shields.io/badge/ENGLISH-Mathematical%20Model-0047AB?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Theory English">
+  </a>
+</p>
+
 <hr/>
 
 ##  System Capabilities / Capacidades del Sistema
@@ -96,8 +109,3 @@
 <a href="mailto:arielduartejesus@gmail.com">
   <img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
 </a>
-</p>
-
-<br/>
-
-*© 2026 Prime Logistics. Built to survive.*
