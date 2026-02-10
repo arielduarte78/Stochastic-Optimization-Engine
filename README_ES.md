@@ -49,6 +49,10 @@ def calcular_distancia(lat1, lon1, lat2, lon2):
 
 
 
+
+
+
+
 ### Bloque 2: El "Motor del Caos"
 
 Simula miles de posibles futuros donde las cosas pueden salir mal.
@@ -62,6 +66,8 @@ lo hace de la suguiente manera:
  ."¿Cómo afecta un bloqueo si ya hay caos?" → Los efectos se amplifican
 
 Los eventos no son independientes. Un paro nacional hace 8 veces más probable una huelga local. Esto simula cascadas reales de problemas.
+
+
 
 
 ### Bloque 3: El "Auditor Bayesiano"
@@ -83,6 +89,8 @@ Fragilidad = Probabilidad de fallo × Impacto promedio cuando falla
 Es importante porque una ruta que falla poco pero causa caos total es MÁS riesgosa que una que falla seguido pero con poco efecto.
 
 
+
+
 ### Bloque 4: El "Estratega"
 
 Recomienda rutas considerando 3 cosas a la vez:
@@ -95,15 +103,18 @@ Recomienda rutas considerando 3 cosas a la vez:
 
 No da UNA mejor ruta. Ofrece varias opciones y dice:
 
- ."El Unicornio": Barato Y seguro (raro pero existe)
 
- ."El Tanque": Caro pero casi infalible
+ 1."El Unicornio": Barato Y seguro (raro pero existe)
 
- ."El Apostador": Muy barato, pero riesgoso
+ 2."El Tanque": Caro pero casi infalible
 
- ."El Equilibrista": Balance perfecto costo/riesgo
+ 3."El Apostador": Muy barato, pero riesgoso
+
+ 4."El Equilibrista": Balance perfecto costo/riesgo
 
 El usuario elige según su prioridad del día.
+
+
 
 # Cómo lo Implementé
 
@@ -117,6 +128,8 @@ Tecnologías usadas:
 
  .Simulación Monte Carlo para explorar futuros posibles
 
+ 
+
 # Estructura del código:
 
 prime_logistics/
@@ -127,6 +140,8 @@ prime_logistics/
 
 Cada bloque es independiente pero se conecta limpamente con los otros.
 
+
+
 ## Próximas features:
 
  .Dashboard web interactivo
@@ -136,6 +151,8 @@ Cada bloque es independiente pero se conecta limpamente con los otros.
  .Alertas tempranas de eventos programados
 
  .Modelos más complejos de dependencia entre eventos
+
+ 
 
 # Limitaciones actuales:
 
