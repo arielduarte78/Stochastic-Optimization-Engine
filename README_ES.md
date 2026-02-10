@@ -133,9 +133,13 @@ Tecnologías usadas:
 # Estructura del código:
 
 prime_logistics/
+
 ├── bloque1/    # Modelado de red
+
 ├── bloque2/    # Simulación de eventos
+
 ├── bloque3/    # Inferencia Bayesiana
+
 └── bloque4/    # Optimización estratégica
 
 Cada bloque es independiente pero se conecta limpamente con los otros.
@@ -144,13 +148,13 @@ Cada bloque es independiente pero se conecta limpamente con los otros.
 
 ## Próximas features:
 
- .Dashboard web interactivo
+ Dashboard web interactivo
 
- .Integración con APIs de tráfico en tiempo real
+ Integración con APIs de tráfico en tiempo real
 
- .Alertas tempranas de eventos programados
+ Alertas tempranas de eventos programados
 
- .Modelos más complejos de dependencia entre eventos
+ Modelos más complejos de dependencia entre eventos
 
  
 
@@ -166,13 +170,13 @@ _Necesita datos históricos para calibrar bien las probabilidades
 
 Desarrollando esto aprendí sobre:
 
- .Grafos y matrices dispersas para modelar redes eficientemente
+ Grafos y matrices dispersas para modelar redes eficientemente
 
- .Simulación Monte Carlo para explorar escenarios complejos
+ Simulación Monte Carlo para explorar escenarios complejos
 
- .Inferencia Bayesiana para aprender de datos simulados
+ Inferencia Bayesiana para aprender de datos simulados
 
- .Optimización multi-objetivo y fronteras de Pareto
+ Optimización multi-objetivo y fronteras de Pareto
 
 # Agradecimientos
 
