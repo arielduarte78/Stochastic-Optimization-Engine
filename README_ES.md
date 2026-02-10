@@ -1,9 +1,7 @@
 #  PRIME LOGISTICS
 
 ### El Problema que Resuelvo:
-Las apps de ruteo (Google Maps, Waze) te muestran el camino más rápido asumiendo que todo funciona perfecto. Pero en el mundo real hay paros de transporte que cortan rutas
-
-Inundaciones que hacen caminos intransitables, bloqueos por protestas, fallas mecánicas que retrasan todo...
+Las apps de ruteo (Google Maps, Waze) te muestran el camino más rápido asumiendo que todo funciona perfecto. Pero en el mundo real hay paros de transporte que cortan rutas, inundaciones que hacen caminos intransitables, bloqueos por protestas, fallas mecánicas que retrasan todo...
 
 Prime Logistics responde a una pregunta simple pero crítica:
 
