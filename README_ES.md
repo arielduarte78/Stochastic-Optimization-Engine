@@ -31,14 +31,14 @@ Convierte una red logística (depósitos, clientes, rutas) en matrices matemáti
 
 Lo hace de la siguiente manera:
 
-Toma ubicaciones reales (latitud/longitud).
+ . Toma ubicaciones reales (latitud/longitud).
 
-Calcula distancias exactas entre puntos (Utilizando la formula de Haversine).
+ . Calcula distancias exactas entre puntos (Utilizando la formula de Haversine).
 
-Crea una "foto" perfecta de cómo está todo en condiciones normales.
+ . Crea una "foto" perfecta de cómo está todo en condiciones normales.
 
 
-Código clave:
+#Código de ejemplo:
 
 python
 
@@ -59,48 +59,52 @@ Simula miles de posibles futuros donde las cosas pueden salir mal.
 
 lo hace de la suguiente manera:
 
-"¿Qué pasa si hoy hay paro nacional?" → Multiplica costos y tiempos
+ ."¿Qué pasa si hoy hay paro nacional?" → Multiplica costos y tiempos
 
-"¿Y si además hay inundación?" → Corta rutas completas
+ ."¿Y si además hay inundación?" → Corta rutas completas
 
-"¿Cómo afecta un bloqueo si ya hay caos?" → Los efectos se amplifican
+ ."¿Cómo afecta un bloqueo si ya hay caos?" → Los efectos se amplifican
 
 Los eventos no son independientes. Un paro nacional hace 8 veces más probable una huelga local. Esto simula cascadas reales de problemas.
 
 Bloque 3: El "Auditor Bayesiano"
+
 Aprende de las simulaciones para decirte qué partes de tu red son más frágiles.
 
 Cómo funciona:
 
-Mira los 1000 futuros simulados.
+ .Mira los 1000 futuros simulados.
 
-Cuenta cuántas veces falló cada ruta/nodo.
+ .Cuenta cuántas veces falló cada ruta/nodo.
 
-Calcula no solo si falla, sino cuánto duele cuando falla.
+ .Calcula no solo si falla, sino cuánto duele cuando falla.
 
 métrica:
 
 Fragilidad = Probabilidad de fallo × Impacto promedio cuando falla
+
 Es importante porque una ruta que falla poco pero causa caos total es MÁS riesgosa que una que falla seguido pero con poco efecto.
 
+
 Bloque 4: El "Estratega"
+
 Recomienda rutas considerando 3 cosas a la vez:
 
-Costo (dinero)
+ .Costo (dinero)
 
-Riesgo (chance de que falle)
+ .Riesgo (chance de que falle)
 
-Robustez (cómo está distribuido el riesgo)
+ .Robustez (cómo está distribuido el riesgo)
 
- No da UNA mejor ruta. Ofrece varias opciones y dice:
+No da UNA mejor ruta. Ofrece varias opciones y dice:
 
-"El Unicornio": Barato Y seguro (raro pero existe)
+ ."El Unicornio": Barato Y seguro (raro pero existe)
 
-"El Tanque": Caro pero casi infalible
+ ."El Tanque": Caro pero casi infalible
 
-"El Apostador": Muy barato, pero riesgoso
+ ."El Apostador": Muy barato, pero riesgoso
 
-"El Equilibrista": Balance perfecto costo/riesgo
+ ."El Equilibrista": Balance perfecto costo/riesgo
 
 El usuario elige según su prioridad del día.
 
@@ -108,13 +112,13 @@ El usuario elige según su prioridad del día.
 
 Tecnologías usadas:
 
-Python 3.10+ con tipado estático
+ .Python 3.10+ con tipado estático
 
-NumPy/SciPy para cálculos científicos rápidos
+ .NumPy/SciPy para cálculos científicos rápidos
 
-Matrices dispersas para manejar redes grandes eficientemente
+ .Matrices dispersas para manejar redes grandes eficientemente
 
-Simulación Monte Carlo para explorar futuros posibles
+ .Simulación Monte Carlo para explorar futuros posibles
 
 # Estructura del código:
 
@@ -128,35 +132,36 @@ Cada bloque es independiente pero se conecta limpamente con los otros.
 
 ## Próximas features:
 
-Dashboard web interactivo
+ .Dashboard web interactivo
 
-Integración con APIs de tráfico en tiempo real
+ .Integración con APIs de tráfico en tiempo real
 
-Alertas tempranas de eventos programados
+ .Alertas tempranas de eventos programados
 
-Modelos más complejos de dependencia entre eventos
+ .Modelos más complejos de dependencia entre eventos
 
 # Limitaciones actuales:
 
-Asume que los eventos son independientes (en realidad se afectan más)
+_Asume que los eventos son independientes (en realidad se afectan más)
 
-No considera tiempos de carga/descarga en nodos
+_No considera tiempos de carga/descarga en nodos
 
-Necesita datos históricos para calibrar bien las probabilidades
+_Necesita datos históricos para calibrar bien las probabilidades
 
 # Aprendizajes:
 
 Desarrollando esto aprendí sobre:
 
-Grafos y matrices dispersas para modelar redes eficientemente
+ .Grafos y matrices dispersas para modelar redes eficientemente
 
-Simulación Monte Carlo para explorar escenarios complejos
+ .Simulación Monte Carlo para explorar escenarios complejos
 
-Inferencia Bayesiana para aprender de datos simulados
+ .Inferencia Bayesiana para aprender de datos simulados
 
-Optimización multi-objetivo y fronteras de Pareto
+ .Optimización multi-objetivo y fronteras de Pareto
 
 # Agradecimientos
+
 A los profesores de la FIUNLZ que me desafiaron a pensar más allá de lo academico.
 
 A la comunidad open-source por las herramientas que utilice y recursos gratuitos de aprendizaje.
