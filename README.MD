@@ -26,11 +26,11 @@
   <br/>
   <br/>
   <a href="TEORIA.md">
-    <img src="https://img.shields.io/badge/ESPAÑOL-Modelo%20Matemático-008000?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Teoría Español">
+    <img src="https://img.shields.io/badge/ESPAÑOL-TEORIA%20MATEMATICA-008000?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Teoría Español">
   </a>
   &nbsp;
   <a href="THEORY.md">
-    <img src="https://img.shields.io/badge/ENGLISH-Mathematical%20Model-0047AB?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Theory English">
+    <img src="https://img.shields.io/badge/ENGLISH-THEORY%20MATHEMATICS-0047AB?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Theory English">
   </a>
 </p>
 
